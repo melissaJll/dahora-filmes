@@ -1,5 +1,6 @@
 import {
   Button,
+  Image,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -7,12 +8,15 @@ import {
   View,
 } from "react-native";
 
+import logo from "./assets/images/logo.png";
+
 export default function App() {
   return (
     <>
       <StatusBar barStyle="light-content"></StatusBar>
       <SafeAreaView style={estilos.container}>
         <View style={estilos.viewLogo}>
+          <Image source={logo} style={estilos.logo} />
           <Text>Dá hora Filmes</Text>
         </View>
         <View style={estilos.viewBotoes}>
@@ -30,17 +34,19 @@ export default function App() {
 
 const estilos = StyleSheet.create({
   container: {
-    backgroundColor: "yellow",
     flex: 1,
     display: "flex",
     alignItems: "center",
   },
   viewLogo: {
-    backgroundColor: "green",
     flex: 3,
     justifyContent: "flex-end",
     alignItems: "center",
     width: "82%",
+  },
+  logo: {
+    width: 128,
+    height: 128,
   },
   viewBotoes: {
     backgroundColor: "orange",
