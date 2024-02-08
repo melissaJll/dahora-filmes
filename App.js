@@ -26,8 +26,8 @@ export default function App() {
             <Text style={estilos.textBotao}>Buscar Filmes</Text>
           </Pressable>
 
-          <Pressable>
-            <Text>Fvoritos</Text>
+          <Pressable style={estilos.botao}>
+            <Text style={estilos.textBotao}>Fvoritos</Text>
           </Pressable>
         </View>
 
@@ -42,6 +42,7 @@ export default function App() {
 
 const estilos = StyleSheet.create({
   container: {
+    backgroundColor: "#5451a615",
     flex: 1,
     display: "flex",
     alignItems: "center",
@@ -57,13 +58,21 @@ const estilos = StyleSheet.create({
     height: 128,
   },
   viewBotoes: {
-    backgroundColor: "orange",
     flex: 2,
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
     justifyContent: "space-evenly",
     width: "82%",
+  },
+  botao: {
+    borderStyle: "solid",
+    borderWidth: 2,
+    backgroundColor: "#5451a6",
+    padding: 16,
+  },
+  textBotao: {
+    color: "#fff",
   },
   viewRodape: {
     backgroundColor: "red",
