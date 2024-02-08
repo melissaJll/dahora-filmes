@@ -22,8 +22,8 @@ export default function App() {
         </View>
 
         <View style={estilos.viewBotoes}>
-          <Pressable onPress={() => console.log("oi")}>
-            <Text>Buscar Filmes</Text>
+          <Pressable style={estilos.botao}>
+            <Text style={estilos.textBotao}>Buscar Filmes</Text>
           </Pressable>
 
           <Pressable>
