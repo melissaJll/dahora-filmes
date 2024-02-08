@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import logo from "./assets/images/logo.png";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function App() {
   return (
@@ -23,11 +24,17 @@ export default function App() {
 
         <View style={estilos.viewBotoes}>
           <Pressable style={estilos.botao}>
-            <Text style={estilos.textBotao}>Buscar Filmes</Text>
+            <Text style={estilos.textBotao}>
+              <Ionicons name="search" size={16} color="white" />
+              Buscar Filmes
+            </Text>
           </Pressable>
 
           <Pressable style={estilos.botao}>
-            <Text style={estilos.textBotao}>Fvoritos</Text>
+            <Text style={estilos.textBotao}>
+              {" "}
+              <Ionicons name="star" size={16} color="gold" /> Fvoritos
+            </Text>
           </Pressable>
         </View>
 
@@ -42,7 +49,7 @@ export default function App() {
 
 const estilos = StyleSheet.create({
   container: {
-    backgroundColor: "#5451a615",
+    backgroundColor: "##7d4db8",
     flex: 1,
     display: "flex",
     alignItems: "center",
