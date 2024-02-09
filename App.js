@@ -12,14 +12,41 @@ import {
 import logo from "./assets/images/logo.png";
 import { Ionicons } from "@expo/vector-icons";
 
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
+
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    "Monoton-Regular": require("./assets/fonts/Monoton-Regular.ttf"),
+  });
+
+  // Função atrelada ao useCallback
+  //Quando uma função está conectada ao useCallBack, garantimos que a referencia dela é armazenada na memória apenas uma vez
+  const aoAtualizarLayout = useCallback(async () => {
+    // se estiver tudo ok com o carregamento
+    if (fontsLoaded || fontError) {
+      // Escondemos a splashscreen
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
     <>
       <StatusBar barStyle="light-content"></StatusBar>
-      <SafeAreaView style={estilos.container}>
+      <SafeAreaView
+        style={estilos.container}
+        onAccessibilityAction={aoAtualizarLayout}
+      >
         <View style={estilos.viewLogo}>
           <Image source={logo} style={estilos.logo} />
-          <Text>Dá hora Filmes</Text>
+          <Text style={estilos.titulo}>Dá hora Filmes</Text>
         </View>
 
         <View style={estilos.viewBotoes}>
@@ -63,6 +90,11 @@ const estilos = StyleSheet.create({
   logo: {
     width: 128,
     height: 128,
+  },
+  titulo: {
+    fontFamily: "Monoton-Regular",
+    fontSize: 32,
+    color: "#5451a6",
   },
   viewBotoes: {
     flex: 2,
