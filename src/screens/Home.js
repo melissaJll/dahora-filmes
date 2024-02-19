@@ -1,5 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import SafeContainer from "../components/SafeContainer";
+import { Ionicons } from "@expo/vector-icons";
+
+import logo from "../../assets/images/logo.png";
 
 export default function Home() {
   return (
