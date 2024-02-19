@@ -11,40 +11,13 @@ import {
 
 import logo from "./assets/images/logo.png";
 import { Ionicons } from "@expo/vector-icons";
-
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
-
-SplashScreen.preventAutoHideAsync();
+import SafeContainer from "./src/components/SafeContainer";
 
 export default function App() {
-  const [fontsLoaded, fontError] = useFonts({
-    "Monoton-Regular": require("./assets/fonts/Monoton-Regular.ttf"),
-    NotoSans: require("./assets/fonts/NotoSans-VariableFont.ttf"),
-  });
-
-  // Função atrelada ao useCallback
-  //Quando uma função está conectada ao useCallBack, garantimos que a referencia dela é armazenada na memória apenas uma vez
-  const aoAtualizarLayout = useCallback(async () => {
-    // se estiver tudo ok com o carregamento
-    if (fontsLoaded || fontError) {
-      // Escondemos a splashscreen
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
-
   return (
     <>
       <StatusBar barStyle="light-content"></StatusBar>
-      <SafeAreaView
-        style={estilos.container}
-        onAccessibilityAction={aoAtualizarLayout}
-      >
+      <SafeContainer>
         <View style={estilos.viewLogo}>
           <Image source={logo} style={estilos.logo} />
           <Text style={estilos.titulo}>Dá hora Filmes</Text>
@@ -84,18 +57,12 @@ export default function App() {
             </Text>
           </Pressable>
         </View>
-      </SafeAreaView>
+      </SafeContainer>
     </>
   );
 }
 
 const estilos = StyleSheet.create({
-  container: {
-    backgroundColor: "##7d4db8",
-    flex: 1,
-    display: "flex",
-    alignItems: "center",
-  },
   viewLogo: {
     flex: 3,
     justifyContent: "flex-end",
