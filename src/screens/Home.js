@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
+import SafeContainer from "../components/SafeContainer";
 
 export default function Home() {
   return (
-    <View>
+    <SafeContainer>
       <Text>Home</Text>
-    </View>
+    </SafeContainer>
   );
 }
 
