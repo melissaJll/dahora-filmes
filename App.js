@@ -21,6 +21,7 @@ SplashScreen.preventAutoHideAsync();
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     "Monoton-Regular": require("./assets/fonts/Monoton-Regular.ttf"),
+    NotoSans: require("./assets/fonts/NotoSans-VariableFont.ttf"),
   });
 
   // Função atrelada ao useCallback
@@ -60,7 +61,7 @@ export default function App() {
           <Pressable style={estilos.botao}>
             <Text style={estilos.textBotao}>
               {" "}
-              <Ionicons name="star" size={16} color="gold" /> Fvoritos
+              <Ionicons name="star" size={16} color="gold" /> Favoritos
             </Text>
           </Pressable>
         </View>
@@ -111,7 +112,9 @@ const estilos = StyleSheet.create({
     padding: 16,
   },
   textBotao: {
+    fontFamily: "NotoSans",
     color: "#fff",
+    fontWeight: "bold",
   },
   viewRodape: {
     backgroundColor: "red",
