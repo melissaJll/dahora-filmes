@@ -5,6 +5,7 @@ import {
   TouchableHighlight,
   View,
   Linking,
+  Pressable,
 } from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import tmdb from "../../assets/images/logo-tmdb.png";
@@ -20,13 +21,15 @@ export default function Sobre() {
           existentes na base de dados pública disponibilizada pelo site The
           Movie Database (TMDb).
         </Text>
-        <TouchableHighlight
+
+        <Pressable
           onPress={() => Linking.openURL("https://www.themoviedb.org/")}
         >
           <View style={estilos.logoTmdb}>
             <Image source={tmdb}></Image>
           </View>
-        </TouchableHighlight>
+        </Pressable>
+
         <Text style={estilos.texto}>
           Ao localizar um filme, o usuário pode visualizar informações como
           título, data de lançamento, nota média de avaliação e uma breve
