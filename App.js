@@ -60,15 +60,29 @@ export default function App() {
 
           <Pressable style={estilos.botao}>
             <Text style={estilos.textBotao}>
-              {" "}
               <Ionicons name="star" size={16} color="gold" /> Favoritos
             </Text>
           </Pressable>
         </View>
 
         <View style={estilos.viewRodape}>
-          <Button title="Privacidade"></Button>
-          <Button title="Sobre"></Button>
+          <Pressable style={estilos.botaoRodape}>
+            <Text style={estilos.textBotao}>
+              <Ionicons name="lock-closed" size={16} color="white"></Ionicons>{" "}
+              Privacidade
+            </Text>
+          </Pressable>
+
+          <Pressable style={estilos.botaoRodape}>
+            <Text style={estilos.textBotao}>
+              <Ionicons
+                name="information-circle"
+                size={16}
+                color="white"
+              ></Ionicons>{" "}
+              Sobre
+            </Text>
+          </Pressable>
         </View>
       </SafeAreaView>
     </>
@@ -94,7 +108,7 @@ const estilos = StyleSheet.create({
   },
   titulo: {
     fontFamily: "Monoton-Regular",
-    fontSize: 32,
+    fontSize: 31,
     color: "#5451a6",
   },
   viewBotoes: {
@@ -106,10 +120,9 @@ const estilos = StyleSheet.create({
     width: "82%",
   },
   botao: {
-    borderStyle: "solid",
-    borderWidth: 2,
     backgroundColor: "#5451a6",
     padding: 16,
+    borderRadius: 3,
   },
   textBotao: {
     fontFamily: "NotoSans",
@@ -117,11 +130,14 @@ const estilos = StyleSheet.create({
     fontWeight: "bold",
   },
   viewRodape: {
-    backgroundColor: "red",
+    backgroundColor: "#5451a6",
     flex: 0.6,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    width: "82%",
+    width: "100%",
+  },
+  botaoRodape: {
+    padding: 16,
   },
 });
