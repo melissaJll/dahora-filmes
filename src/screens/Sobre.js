@@ -1,5 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  Linking,
+} from "react-native";
 import SafeContainer from "../components/SafeContainer";
+import tmdb from "../../assets/images/logo-tmdb.png";
 
 export default function Sobre() {
   return (
@@ -12,6 +20,13 @@ export default function Sobre() {
           existentes na base de dados pública disponibilizada pelo site The
           Movie Database (TMDb).
         </Text>
+        <TouchableHighlight
+          onPress={() => Linking.openURL("https://www.themoviedb.org/")}
+        >
+          <View style={estilos.logoTmdb}>
+            <Image source={tmdb}></Image>
+          </View>
+        </TouchableHighlight>
         <Text style={estilos.texto}>
           Ao localizar um filme, o usuário pode visualizar informações como
           título, data de lançamento, nota média de avaliação e uma breve
@@ -47,5 +62,10 @@ const estilos = StyleSheet.create({
   nomeApp: {
     fontWeight: "bold",
     color: "#7d4db8",
+  },
+  logoTmdb: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
