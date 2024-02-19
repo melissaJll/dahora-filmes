@@ -15,7 +15,7 @@ export default function Sobre() {
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Text style={estilos.subTitulo}>Sobre o app DaHora Filmes</Text>
           <Text style={estilos.texto}>
             O <Text style={estilos.nomeApp}>DaHora Filmes</Text> é um aplicativo
@@ -38,6 +38,7 @@ export default function Sobre() {
             descrição sobre o filme e, caso queira, salvar estas informações em
             uma lista no próprio aplicativo para visualização posterior.
           </Text>
+
           <Text style={estilos.texto}>
             O aplicativo poderá receber novos recursos conforme o feedback e
             demanda dos usuários.
