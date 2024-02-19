@@ -69,5 +69,6 @@ const estilos = StyleSheet.create({
   logoTmdb: {
     // display: "flex",
     alignItems: "center",
+    marginVertical: 5,
   },
 });
