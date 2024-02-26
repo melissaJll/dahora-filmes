@@ -14,9 +14,16 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Home">
           {/* Cada página que será usada precisa de um stack.screen */}
-          <Stack.Screen name="Home" component={Home}></Stack.Screen>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{ headerShown: false }}
+            // Desabilita o nome na home
+          />
+          <Stack.Screen name="Sobre" component={Sobre} />
+          <Stack.Screen name="Privacidade" component={Privacidade} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
