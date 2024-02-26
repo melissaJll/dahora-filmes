@@ -20,6 +20,10 @@ Dependências para navegação:
 
 `npm install @react-navigation/native-stack`
 
+#### Configurações
+
+No `app.js` importamos o `NavigationContainer` e o `createNativeStackNavigator`, em seguida os configuramos para determinat o `Stack.Navigator` e as telas `Stack.Screen` e seus componentes correspondentes(no momento, apenas `Home`, `Privacidade`, `Sobre`)
+
 # Branch 03
 
 - Criação das telas básicas: Sobre Privacidade
