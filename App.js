@@ -35,7 +35,11 @@ export default function App() {
             options={{ title: "Conheça nosso App" }}
           />
           <Stack.Screen name="Privacidade" component={Privacidade} />
-          <Stack.Screen name="BuscarFilmes" component={BuscarFilmes} />
+          <Stack.Screen
+            name="BuscarFilmes"
+            component={BuscarFilmes}
+            options={{ title: "Qual Filmes quer pesquisar?" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
