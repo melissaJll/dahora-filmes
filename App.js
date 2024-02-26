@@ -14,7 +14,13 @@ export default function App() {
     <>
       <StatusBar barStyle="light-content" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerStyle: { backgroundColor: "#5451a6" },
+            headerTintColor: "white",
+          }}
+        >
           {/* Cada página que será usada precisa de um stack.screen */}
           <Stack.Screen
             name="Home"
