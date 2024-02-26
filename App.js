@@ -28,7 +28,11 @@ export default function App() {
             options={{ headerShown: false }}
             // Desabilita o nome na home
           />
-          <Stack.Screen name="Sobre" component={Sobre} />
+          <Stack.Screen
+            name="Sobre"
+            component={Sobre}
+            options={{ title: "Conheça nosso App" }}
+          />
           <Stack.Screen name="Privacidade" component={Privacidade} />
         </Stack.Navigator>
       </NavigationContainer>
