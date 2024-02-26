@@ -2,6 +2,24 @@
 
 Exemplo de app nativo multiplataforma criado com React Native e Expo.
 
+# Branch 04
+
+Para gerenciar os recursos de navegação é necessario usatr uma biblioteca de navegação
+as mais conhecidas são a **React Navigaton** e a **Expo Router**.
+
+Atualmente (fevereiro/2024) a biblioteca mais usada e considerada padrão é a **React Navigation** e a **Expo Router**
+
+- React Navigation: https://reactnavigation.org
+- Expo Router: https://docs.expo.dev/router/introduction
+
+`npm install @react-navigation/native`
+
+Dependências para navegação:
+
+`npx expo install react-native-screens react-native-safe-area-context`
+
+`npm install @react-navigation/native-stack`
+
 # Branch 03
 
 - Criação das telas básicas: Sobre Privacidade
