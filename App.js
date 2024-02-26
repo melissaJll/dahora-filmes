@@ -7,6 +7,7 @@ const Stack = createNativeStackNavigator();
 
 import Home from "./src/screens/Home";
 import Sobre from "./src/screens/Sobre";
+import BuscarFilmes from "./src/screens/BuscarFilmes";
 import Privacidade from "./src/screens/Privacidade";
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
             options={{ title: "Conheça nosso App" }}
           />
           <Stack.Screen name="Privacidade" component={Privacidade} />
+          <Stack.Screen name="BuscarFilmes" component={BuscarFilmes} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
