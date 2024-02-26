@@ -39,7 +39,10 @@ export default function Home({ navigation }) {
           </Text>
         </Pressable>
 
-        <Pressable style={estilos.botaoRodape}>
+        <Pressable
+          style={estilos.botaoRodape}
+          onPress={() => navigation.navigate("Sobre")}
+        >
           <Text style={estilos.textBotao}>
             <Ionicons
               name="information-circle"
