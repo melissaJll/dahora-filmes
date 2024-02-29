@@ -1,4 +1,4 @@
-// src/screens/BuscarFilmes.js
+import React, { useState } from "react";
 import {
   Alert,
   Button,
@@ -10,14 +10,13 @@ import {
 } from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
 
 export default function BuscarFilmes() {
   const [textoInput, setTextoInput] = useState("");
 
   const respostaBusca = () => {
-    if (textoInput == "") {
-      Alert.alert("Ops!", " Você deve digitar um filme");
+    if (textoInput === "") {
+      Alert.alert("Ops!", "Você deve digitar um filme");
     } else {
       Alert.alert("Procurar por:", textoInput);
     }
@@ -38,7 +37,8 @@ export default function BuscarFilmes() {
             <TextInput
               style={estilos.input}
               placeholder="Buscar"
-              value={setTextoInput}
+              value={textoInput} // Correção aqui
+              onChangeText={setTextoInput} // Adicionando esta linha para atualizar o estado
               enterKeyHint="search"
             />
           </View>
