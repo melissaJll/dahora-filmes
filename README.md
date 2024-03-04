@@ -2,6 +2,14 @@
 
 Exemplo de app nativo multiplataforma criado com React Native e Expo.
 
+# Branch 05
+
+### Solução: recursos utilizados
+
+- componentes/recursos nativos: `textInput`, `Button`, `vibration`e `alert`
+- Eventos:
+- `OnchangeText` no `TextInput` para captura em tempo real do filme digitado e eatualização do `state` usando a função `FilmeInput`
+
 # Branch 04
 
 Para gerenciar os recursos de navegação é necessario usatr uma biblioteca de navegação
