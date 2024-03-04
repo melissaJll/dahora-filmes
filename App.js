@@ -9,6 +9,7 @@ import Home from "./src/screens/Home";
 import Sobre from "./src/screens/Sobre";
 import BuscarFilmes from "./src/screens/BuscarFilmes";
 import Privacidade from "./src/screens/Privacidade";
+import Resultados from "./src/screens/Resultados";
 
 export default function App() {
   return (
@@ -39,6 +40,11 @@ export default function App() {
             name="BuscarFilmes"
             component={BuscarFilmes}
             options={{ title: "Qual Filmes quer pesquisar?" }}
+          />
+          <Stack.Screen
+            name="Resultados"
+            component={Resultados}
+            options={{ title: "Deatalhes" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
