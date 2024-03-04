@@ -12,7 +12,7 @@ import {
 import SafeContainer from "../components/SafeContainer";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function BuscarFilmes() {
+export default function BuscarFilmes({ navigation }) {
   const [filmeInput, setfilmeInput] = useState("");
 
   // Apenas captura o nome digitado
@@ -24,9 +24,9 @@ export default function BuscarFilmes() {
     if (!filmeInput) {
       Vibration.vibrate(500);
       return Alert.alert("Ops!", "Você deve digitar um filme");
-    } else {
-      return Alert.alert("Procurar por:", filmeInput);
     }
+    // prop navigation definida
+    navigation.navigate("Resultados", { filmeInput });
   };
 
   return (

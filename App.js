@@ -17,7 +17,7 @@ export default function App() {
       <StatusBar barStyle="light-content" />
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Resultados"
           screenOptions={{
             headerStyle: { backgroundColor: "#5451a6" },
             headerTintColor: "white",
@@ -44,7 +44,7 @@ export default function App() {
           <Stack.Screen
             name="Resultados"
             component={Resultados}
-            options={{ title: "Deatalhes" }}
+            options={{ title: "Detalhes" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
