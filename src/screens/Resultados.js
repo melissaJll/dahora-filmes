@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import SafeContainer from "../components/SafeContainer";
 
-export default function Sobre() {
+export default function Resultados({ route }) {
+  console.log(route.params.filmeInput);
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
-        <Text style={estilos.texto}></Text>
+        <Text style={estilos.texto}>Você buscou por: </Text>
       </View>
     </SafeContainer>
   );

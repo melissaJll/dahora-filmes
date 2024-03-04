@@ -13,7 +13,7 @@ import SafeContainer from "../components/SafeContainer";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function BuscarFilmes({ navigation }) {
-  const [filmeInput, setfilmeInput] = useState("");
+  const [filmeInput, setfilmeInput] = useState(""); //
 
   // Apenas captura o nome digitado
   const filmeDigitado = (valorDigitado) => {
