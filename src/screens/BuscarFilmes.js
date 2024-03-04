@@ -6,19 +6,26 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  Vibration,
   View,
 } from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function BuscarFilmes() {
-  const [textoInput, setTextoInput] = useState("");
+  const [filmeInput, setfilmeInput] = useState("");
+
+  // Apenas captura o nome digitado
+  const filmeDigitado = (valorDigitado) => {
+    setfilmeInput(valorDigitado);
+  };
 
   const respostaBusca = () => {
-    if (textoInput === "") {
-      Alert.alert("Ops!", "Você deve digitar um filme");
+    if (!filmeInput) {
+      Vibration.vibrate(500);
+      return Alert.alert("Ops!", "Você deve digitar um filme");
     } else {
-      Alert.alert("Procurar por:", textoInput);
+      return Alert.alert("Procurar por:", filmeInput);
     }
   };
 
@@ -32,13 +39,15 @@ export default function BuscarFilmes() {
           <Text style={estilos.texto}>
             Localize um filme que você viu ou gostaria de ver!
           </Text>
+
           <View style={estilos.pesquisa}>
             <Ionicons name="film" color="#5451a6" size={45}></Ionicons>
             <TextInput
               style={estilos.input}
               placeholder="Buscar"
-              value={textoInput} // Correção aqui
-              onChangeText={setTextoInput} // Adicionando esta linha para atualizar o estado
+              value={filmeInput} // Correção aqui
+              onSubmitEditing={respostaBusca} // Adicionando esta linha para atualizar o estado BuscarFilmes
+              onChangeText={filmeDigitado}
               enterKeyHint="search"
             />
           </View>
