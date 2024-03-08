@@ -1,13 +1,20 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
+// filme ou props.filme.title
+export default function CardFilme({ filme }) {
+  // Extraindo as informações do filme titulo e capa
+  const { title, poster_path } = filme;
 
-export default function CardFilme() {
+  //   mesmo sem loopoing exibe os cards
   return (
     <View style={estilos.card}>
-      <Image style={estilos.image} source={imagemAlternativa} />
+      <Image
+        style={estilos.image}
+        source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
+      />
       <View style={estilos.corpo}>
-        <Text style={estilos.titulo}>Nome do filme</Text>
+        <Text style={estilos.titulo}>{title}</Text>
         <View style={estilos.botoes}>
           <Pressable style={estilos.botao}>
             <Text style={estilos.textoBotao}> Leia mais</Text>
@@ -30,6 +37,7 @@ const estilos = StyleSheet.create({
     borderColor: "#5451a6",
     justifyContent: "space-between",
     alignItems: "center",
+    marginVertical: 3,
   },
   image: {
     height: 150,
