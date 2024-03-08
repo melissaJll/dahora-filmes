@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import { api, apiKey } from "../services/api-moviedb";
 import { useEffect, useState } from "react";
@@ -21,7 +21,8 @@ export default function Resultados({ route }) {
             api_key: apiKey,
           },
         });
-        console.log(resposta.data);
+        // adicionando a var resultados do state
+        setResultados(resposta.data.results);
       } catch (error) {
         console.log("deu ruim");
       }
@@ -33,6 +34,15 @@ export default function Resultados({ route }) {
     <SafeContainer>
       <View style={estilos.subContainer}>
         <Text style={estilos.texto}>Você buscou por: {filmeInput} </Text>
+
+        <View style={estilos.viewFilmes}>
+          <FlatList
+            data={resultados}
+            renderItem={({ item }) => {
+              return <Text>{item.title}</Text>;
+            }}
+          />
+        </View>
       </View>
     </SafeContainer>
   );
@@ -45,6 +55,10 @@ const estilos = StyleSheet.create({
   },
 
   texto: {
+    marginVertical: 8,
+    width: "100%",
+  },
+  viewFilmes: {
     marginVertical: 8,
   },
 });
