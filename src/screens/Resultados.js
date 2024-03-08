@@ -38,6 +38,7 @@ export default function Resultados({ route }) {
         <View style={estilos.viewFilmes}>
           <FlatList
             data={resultados}
+            keyExtractor={(item) => item.id}
             renderItem={({ item }) => {
               return <Text>{item.title}</Text>;
             }}
