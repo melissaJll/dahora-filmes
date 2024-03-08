@@ -15,6 +15,7 @@ import SemResultados from "../components/SemResultados";
 export default function Resultados({ route }) {
   //  gerencia resultados da busca na API
   const [resultados, setResultados] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // captura parametro filme de buscar filme
   const { filmeInput } = route.params;
@@ -32,6 +33,9 @@ export default function Resultados({ route }) {
         });
         // adicionando a var resultados do state
         setResultados(resposta.data.results);
+
+        // Se o try funcionar os resultados são trazidos logo false
+        setLoading(false);
       } catch (error) {
         console.log("deu ruim");
       }
@@ -44,7 +48,10 @@ export default function Resultados({ route }) {
       <View style={estilos.subContainer}>
         <Text style={estilos.texto}>Você buscou por: {filmeInput} </Text>
 
-        <ActivityIndicator size="large" color="#5451a6"></ActivityIndicator>
+        {/* se solading true renderize*/}
+        {loading && (
+          <ActivityIndicator size="large" color="#5451a6"></ActivityIndicator>
+        )}
 
         <View style={estilos.viewFilmes}>
           <FlatList
