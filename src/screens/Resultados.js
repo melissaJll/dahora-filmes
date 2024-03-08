@@ -37,8 +37,11 @@ export default function Resultados({ route }) {
 
         <View style={estilos.viewFilmes}>
           <FlatList
+            // prop data apontando para o state contendo os dados para a flatlist
             data={resultados}
+            //Extraind chave/key de cada registro/item/filme único
             keyExtractor={(item) => item.id}
+            //Prop que irá renderizar cada item/filme em um componente
             renderItem={({ item }) => {
               return <Text>{item.title}</Text>;
             }}
