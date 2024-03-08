@@ -61,6 +61,6 @@ const estilos = StyleSheet.create({
     width: "100%",
   },
   viewFilmes: {
-    marginVertical: 8,
+    marginVertical: 4,
   },
 });
