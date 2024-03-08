@@ -1,8 +1,16 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import SafeContainer from "../components/SafeContainer";
 import { api, apiKey } from "../services/api-moviedb";
 import { useEffect, useState } from "react";
 import CardFilme from "../components/CardFilme";
+import Separador from "../components/Separador";
+import SemResultados from "../components/SemResultados";
 //
 export default function Resultados({ route }) {
   //  gerencia resultados da busca na API
@@ -36,6 +44,8 @@ export default function Resultados({ route }) {
       <View style={estilos.subContainer}>
         <Text style={estilos.texto}>Você buscou por: {filmeInput} </Text>
 
+        <ActivityIndicator size="large" color="#5451a6"></ActivityIndicator>
+
         <View style={estilos.viewFilmes}>
           <FlatList
             data={resultados}
@@ -44,8 +54,8 @@ export default function Resultados({ route }) {
               return <CardFilme filme={item} />;
             }}
             // vem do flatlist
-            ListEmptyComponent={() => <Text>Sem Resultados</Text>}
-            ItemSeparatorComponent={() => <Text>"""</Text>}
+            ListEmptyComponent={() => <SemResultados />}
+            ItemSeparatorComponent={() => <Separador></Separador>}
           />
         </View>
       </View>
