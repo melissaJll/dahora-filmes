@@ -43,6 +43,9 @@ export default function Resultados({ route }) {
             renderItem={({ item }) => {
               return <CardFilme filme={item} />;
             }}
+            // vem do flatlist
+            ListEmptyComponent={() => <Text>Sem Resultados</Text>}
+            ItemSeparatorComponent={() => <Text>"""</Text>}
           />
         </View>
       </View>
