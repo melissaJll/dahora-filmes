@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import CardFilme from "../components/CardFilme";
 import Separador from "../components/Separador";
 import SemResultados from "../components/SemResultados";
+import Loading from "../components/Loading";
 //
 export default function Resultados({ route }) {
   //  gerencia resultados da busca na API
@@ -49,9 +50,7 @@ export default function Resultados({ route }) {
         <Text style={estilos.texto}>Você buscou por: {filmeInput} </Text>
 
         {/* se solading true renderize*/}
-        {loading && (
-          <ActivityIndicator size="large" color="#5451a6"></ActivityIndicator>
-        )}
+        {loading && <Loading />}
 
         {!loading && (
           <View style={estilos.viewFilmes}>
