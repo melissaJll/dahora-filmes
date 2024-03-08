@@ -53,18 +53,20 @@ export default function Resultados({ route }) {
           <ActivityIndicator size="large" color="#5451a6"></ActivityIndicator>
         )}
 
-        <View style={estilos.viewFilmes}>
-          <FlatList
-            data={resultados}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => {
-              return <CardFilme filme={item} />;
-            }}
-            // vem do flatlist
-            ListEmptyComponent={() => <SemResultados />}
-            ItemSeparatorComponent={() => <Separador></Separador>}
-          />
-        </View>
+        {!loading && (
+          <View style={estilos.viewFilmes}>
+            <FlatList
+              data={resultados}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => {
+                return <CardFilme filme={item} />;
+              }}
+              // vem do flatlist
+              ListEmptyComponent={() => <SemResultados />}
+              ItemSeparatorComponent={() => <Separador></Separador>}
+            />
+          </View>
+        )}
       </View>
     </SafeContainer>
   );
