@@ -44,9 +44,14 @@ export default function Detalhes({ route }) {
               Avaliação: {vote_average.toFixed(1)}
             </Text>
             <Text style={[estilos.texto, estilos.lancamento]}>
-              Lançamento: {formataData(release_date)}
+              Lançamento:{" "}
+              {release_date ? formataData(release_date) : "Indisponível"}
             </Text>
-            <Text style={[estilos.texto, estilos.descricao]}>{overview}</Text>
+            <Text style={[estilos.texto, estilos.descricao]}>
+              {overview || (
+                <Text style={{ fontStyle: "italic" }}>Indisponível</Text>
+              )}
+            </Text>
           </ScrollView>
         </View>
       </View>
