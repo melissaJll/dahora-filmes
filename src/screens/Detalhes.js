@@ -12,10 +12,14 @@ export default function Detalhes({ route }) {
   // Extraindo dados
   const { filme } = route.params;
   //usar apenas assim e colocar "{filme.title}" ou desestruturar como abaixo
-  /* . O motivo de desestruturar filme dessa maneira é para tornar o código mais conciso e acessar diretamente a propriedade desejada (filme) em vez de usar route.params.filme. 
+  /* . O motivo de desestruturar filme dessa maneira é para tornar o código mais conciso e acessar diretamente a propriedade desejada (filme) inves de usar route.params.filme. 
   Equivalente a usar {filme} ao invés de props.filme.title  */
 
   const { title, release_date, overview, vote_average, backdrop_path } = filme;
+
+  const formataData = () => {
+    return new Date(release_date).toLocaleDateString("pt-BR");
+  };
 
   return (
     <SafeContainer>
@@ -36,9 +40,11 @@ export default function Detalhes({ route }) {
             <Text style={estilos.textoDestaque}>
               Avaliação:{" "}
               <Text style={estilos.texto}>{vote_average.toFixed(1)}</Text>
+              {/* toFixed formata os decimais da avaliação */}
             </Text>
             <Text style={[estilos.textoDestaque, estilos.lancamento]}>
-              Lançamento: <Text style={estilos.texto}>{release_date}</Text>
+              Lançamento:{" "}
+              <Text style={estilos.texto}>{formataData(release_date)}</Text>
             </Text>
             <Text style={estilos.textoDestaque}>
               Descrição: <Text style={estilos.texto}>{overview}</Text>
