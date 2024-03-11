@@ -11,6 +11,10 @@ import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 export default function Detalhes({ route }) {
   // Extraindo dados
   const { filme } = route.params;
+  //usar apenas assim e colocar "{filme.title}" ou desestruturar como abaixo
+  /* . O motivo de desestruturar filme dessa maneira é para tornar o código mais conciso e acessar diretamente a propriedade desejada (filme) em vez de usar route.params.filme. 
+  Equivalente a usar {filme} ao invés de props.filme.title  */
+
   const { title, release_date, overview, vote_average, backdrop_path } = filme;
 
   return (
@@ -20,11 +24,11 @@ export default function Detalhes({ route }) {
           style={estilos.imagemFundo}
           source={
             backdrop_path
-              ? { uri: `https://image.tmdb.org/t/p/w500/${backdrop_path}` }
+              ? { uri: `https://image.tmdb.org/t/p/original/${backdrop_path}` }
               : imagemAlternativa
           }
         >
-          <Text style={estilos.titulo}>Título do filme...</Text>
+          <Text style={estilos.titulo}>{title}</Text>
         </ImageBackground>
 
         <View style={estilos.conteudo}>

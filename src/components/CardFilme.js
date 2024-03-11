@@ -8,8 +8,9 @@ import { useNavigation } from "@react-navigation/native";
 
 // filme ou props.filme.title
 export default function CardFilme({ filme }) {
-  // Extraindo as informações do filme titulo e capa
+  // Extraindo as informações do filme titulo e capa, outros nomes para imagem e data estão no console
   const { title, poster_path } = filme;
+  console.log(filme);
 
   /* Acessar recursos de navegação */
   const navigation = useNavigation();
@@ -31,6 +32,7 @@ export default function CardFilme({ filme }) {
           <Pressable
             style={estilos.botao}
             onPress={() => navigation.navigate("Detalhes", { filme })}
+            // prop filme definida na linha 12 contém todos os dados não apenas title e poste_path
           >
             <Text style={estilos.textoBotao}>
               <Ionicons name="book" size={12} /> Leia mais

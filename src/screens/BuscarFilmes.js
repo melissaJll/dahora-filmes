@@ -26,6 +26,10 @@ export default function BuscarFilmes({ navigation }) {
       return Alert.alert("Ops!", "Você deve digitar um filme");
     }
     // prop navigation definida
+    /* Redirecionando para a tela de Resultados passando
+    o filme para ela através do segundo parâmetro
+    do método navigate. Obs.: não se esqueça de definir
+    a prop navigation no componente. */
     navigation.navigate("Resultados", { filmeInput });
   };
 
