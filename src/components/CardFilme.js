@@ -4,7 +4,7 @@ import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 import { Ionicons } from "@expo/vector-icons";
 
 // filme ou props.filme.title
-export default function CardFilme({ filme }) {
+export default function CardFilme({ filme, navigation }) {
   // Extraindo as informações do filme titulo e capa
   const { title, poster_path } = filme;
 
@@ -18,7 +18,10 @@ export default function CardFilme({ filme }) {
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}>{title}</Text>
         <View style={estilos.botoes}>
-          <Pressable style={estilos.botao}>
+          <Pressable
+            style={estilos.botao}
+            onPress={() => navigation.navigate("Detalhes")}
+          >
             <Text style={estilos.textoBotao}>
               <Ionicons name="book" size={12} /> Leia mais
             </Text>
