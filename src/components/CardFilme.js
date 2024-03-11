@@ -10,7 +10,6 @@ import { useNavigation } from "@react-navigation/native";
 export default function CardFilme({ filme }) {
   // Extraindo as informações do filme titulo e capa, outros nomes para imagem e data estão no console
   const { title, poster_path } = filme;
-  console.log(filme);
 
   /* Acessar recursos de navegação */
   const navigation = useNavigation();
