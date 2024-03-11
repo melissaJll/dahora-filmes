@@ -7,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 // filme ou props.filme.title
-export default function CardFilme({ filme, navigation }) {
+export default function CardFilme({ filme }) {
   // Extraindo as informações do filme titulo e capa
   const { title, poster_path } = filme;
 
@@ -19,7 +19,11 @@ export default function CardFilme({ filme, navigation }) {
     <View style={estilos.card}>
       <Image
         style={estilos.image}
-        source={{ uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }}
+        source={
+          poster_path
+            ? { uri: `https://image.tmdb.org/t/p/w500/${poster_path}` }
+            : imagemAlternativa
+        }
       />
       <View style={estilos.corpo}>
         <Text style={estilos.titulo}>{title}</Text>
