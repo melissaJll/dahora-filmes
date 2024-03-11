@@ -49,7 +49,7 @@ export default function Detalhes({ route }) {
             </Text>
             <Text style={[estilos.texto, estilos.descricao]}>
               {overview || (
-                <Text style={{ fontStyle: "italic" }}>Indisponível</Text>
+                <Text style={{ fontStyle: "italic" }}>Sem descrição</Text>
               )}
             </Text>
           </ScrollView>
