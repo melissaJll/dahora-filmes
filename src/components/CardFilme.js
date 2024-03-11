@@ -2,11 +2,17 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 import { Ionicons } from "@expo/vector-icons";
+/* Hook necessário pois não estamos em uma tela com acesso
+à prop navigation */
+import { useNavigation } from "@react-navigation/native";
 
 // filme ou props.filme.title
 export default function CardFilme({ filme, navigation }) {
   // Extraindo as informações do filme titulo e capa
   const { title, poster_path } = filme;
+
+  /* Acessar recursos de navegação */
+  const navigation = useNavigation();
 
   //   mesmo sem loopoing exibe os cards
   return (
