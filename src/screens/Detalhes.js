@@ -29,13 +29,16 @@ export default function Detalhes({ route }) {
 
         <View style={estilos.conteudo}>
           <ScrollView>
-            <Text style={[estilos.texto, estilos.avaliacao]}>
-              Avaliação....
+            <Text style={estilos.textoDestaque}>
+              Avaliação:{" "}
+              <Text style={estilos.texto}>{vote_average.toFixed(1)}</Text>
             </Text>
-            <Text style={[estilos.texto, estilos.lancamento]}>
-              Lançamento...
+            <Text style={[estilos.textoDestaque, estilos.lancamento]}>
+              Lançamento: <Text style={estilos.texto}>{release_date}</Text>
             </Text>
-            <Text style={[estilos.texto, estilos.descricao]}>Descrição...</Text>
+            <Text style={estilos.textoDestaque}>
+              Descrição: <Text style={estilos.texto}>{overview}</Text>
+            </Text>
           </ScrollView>
         </View>
       </View>
