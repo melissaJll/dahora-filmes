@@ -30,7 +30,7 @@ export default function CardFilme({ filme }) {
         <View style={estilos.botoes}>
           <Pressable
             style={estilos.botao}
-            onPress={() => navigation.navigate("Detalhes")}
+            onPress={() => navigation.navigate("Detalhes", { filme })}
           >
             <Text style={estilos.textoBotao}>
               <Ionicons name="book" size={12} /> Leia mais

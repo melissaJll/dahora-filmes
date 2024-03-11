@@ -8,11 +8,22 @@ import {
 import SafeContainer from "../components/SafeContainer";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 
-export default function Detalhes() {
+export default function Detalhes({ route }) {
+  // Extraindo dados
+  const { filme } = route.params;
+  const { title, release_date, overview, vote_average, backdrop_path } = filme;
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
-        <ImageBackground style={estilos.imagemFundo} source={imagemAlternativa}>
+        <ImageBackground
+          style={estilos.imagemFundo}
+          source={
+            backdrop_path
+              ? { uri: `https://image.tmdb.org/t/p/w500/${backdrop_path}` }
+              : imagemAlternativa
+          }
+        >
           <Text style={estilos.titulo}>Título do filme...</Text>
         </ImageBackground>
 
