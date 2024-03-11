@@ -17,8 +17,11 @@ export default function Detalhes({ route }) {
 
   const { title, release_date, overview, vote_average, backdrop_path } = filme;
 
-  const formataData = () => {
-    return new Date(release_date).toLocaleDateString("pt-BR");
+  const formataData = (data) => {
+    //2020-04-21
+    // Quebramos (split) a a data em pedaços que separados são com "-' e guardando ano: 2020 split mes: 04
+    const [ano, mes, dia] = data.split("-");
+    return `${dia}/${mes}/${ano}`;
   };
 
   return (
@@ -36,19 +39,14 @@ export default function Detalhes({ route }) {
         </ImageBackground>
 
         <View style={estilos.conteudo}>
-          <ScrollView>
-            <Text style={estilos.textoDestaque}>
-              Avaliação:{" "}
-              <Text style={estilos.texto}>{vote_average.toFixed(1)}</Text>
-              {/* toFixed formata os decimais da avaliação */}
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <Text style={[estilos.texto, estilos.avaliacao]}>
+              Avaliação: {vote_average.toFixed(1)}
             </Text>
-            <Text style={[estilos.textoDestaque, estilos.lancamento]}>
-              Lançamento:{" "}
-              <Text style={estilos.texto}>{formataData(release_date)}</Text>
+            <Text style={[estilos.texto, estilos.lancamento]}>
+              Lançamento: {formataData(release_date)}
             </Text>
-            <Text style={estilos.textoDestaque}>
-              Descrição: <Text style={estilos.texto}>{overview}</Text>
-            </Text>
+            <Text style={[estilos.texto, estilos.descricao]}>{overview}</Text>
           </ScrollView>
         </View>
       </View>
