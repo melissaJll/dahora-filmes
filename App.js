@@ -10,6 +10,7 @@ import Sobre from "./src/screens/Sobre";
 import BuscarFilmes from "./src/screens/BuscarFilmes";
 import Privacidade from "./src/screens/Privacidade";
 import Resultados from "./src/screens/Resultados";
+import Detalhes from "./src/screens/Detalhes";
 
 export default function App() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
             component={Resultados}
             options={{ title: "Detalhes" }}
           />
+          <Stack.Screen name="Detalhes" component={Detalhes} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
