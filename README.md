@@ -7,6 +7,23 @@ Exemplo de app nativo multiplataforma criado com React Native e Expo.
 - Criação da tela `Detalhes.js` e adição dela à `Stack` em `App.js`
 - Em `CardFilme`, utilização do hook `useNavigation` para funcionalidade de navegação do botão **Leia mais**.
 
+## Branch 07-melhorias-nos-resultados
+
+- Loading usando `ActivityIndicator`
+- Em `Resultados`, aplicamos à `FlatList` componentes personalizados para o caso de não haver filmes na busca (`NaoEncontrado/ListEmptyComponent`) e
+  para separar cada elemento da `FlatList` (`Separador/ItemSeparatorComponent`)
+- Em `CardFilme` colocamos uma condicional para o carregamento de imagem alternativa caso algum filme não tenha imagem, e também ícones nos botões.
+
+## Branch 06-tela-de-resultados-e-programação-api
+
+### Resumo
+
+#### API de Filmes
+
+- Cadastro na API TheMovieDB
+- Criação de uma chave de API (API Key)
+- Configuração de variável ambiente através do arquivo `.env` contendo a API Key via Expo. (arquivo ENV são ignorados no versionamento)
+
 # Branch 05
 
 ### Solução: recursos utilizados
