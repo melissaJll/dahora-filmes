@@ -1,4 +1,12 @@
-import { Alert, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  Vibration,
+  View,
+} from "react-native";
 import React from "react";
 import imagemAlternativa from "../../assets/images/foto-alternativa.jpg";
 import { Ionicons } from "@expo/vector-icons";
@@ -30,8 +38,14 @@ export default function CardFilme({ filme }) {
       const listaDeFilmes = filmesFavoritos ? JSON.parse(filmesFavoritos) : [];
 
       // 3. Verificar se já tem algum filme na lista
+      //função some retorna true ou false
+      // filme.id é o filme que vem da API e filmeNaLista.id é um filme que já foi adicionado a lista de favoritos (pegar o comentário do professor)
+      const jaTemFilme = listaDeFilmes.some((filmeNaLista) => {
+        return filmeNaLista.id === filme.id;
+      });
 
-      // 4. Se o filme não estiver na ByteLengthQueuingStrategy, vamos colocá-lo
+      // 4. Verificação, alterar e registro do filme
+      // 4.1 Se já tem filme, avisaremos ao usuário
 
       // 5. Usamos o AsyncStorage para gravar no armazenamento offline
     } catch (error) {
