@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 /* Hook necessário pois não estamos em uma tela com acesso
 à prop navigation */
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // filme ou props.filme.title
 export default function CardFilme({ filme }) {
@@ -17,10 +18,19 @@ export default function CardFilme({ filme }) {
   const salvar = async () => {
     // Alert.alert("Salvando", "favoritos");
     try {
-      // 1. Verificar e carregar os favoritos armazenados no AsyncStorage
+      /* 1. Verificar e carregar os favoritos armazenados no AsyncStorage. Usamos o
+       getItem do AsyncStorage para analisaar se existe um armazenamento com o nome indicado (@nome). Existindo ele écarregado para a const filmesFavoritos.
+       se não existir, será criado posteriormente*/
+      const filmesFavoritos = await AsyncStorage.getItem(
+        "@favoritosfilmesnahora"
+      );
+
       // 2. Criar ou verificar uma lista de filmes favoritos (dados)
+
       // 3. Verificar se já tem algum filme na lista
+
       // 4. Se o filme não estiver na ByteLengthQueuingStrategy, vamos colocá-lo
+
       // 5. Usamos o AsyncStorage para gravar no armazenamento offline
     } catch (error) {
       console.log(error);
