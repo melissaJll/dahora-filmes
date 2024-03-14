@@ -46,6 +46,13 @@ export default function CardFilme({ filme }) {
 
       // 4. Verificação, alterar e registro do filme
       // 4.1 Se já tem filme, avisaremos ao usuário
+      if (jaTemFilme) {
+        Alert.alert("Ops", " Você já salvou este filme");
+        Vibration.vibrate();
+        return;
+      }
+      // 4.2  Se o filme não estiver na ByteLengthQueuingStrategy, vamos colocá-lo
+      listaDeFilmes.push(filme);
 
       // 5. Usamos o AsyncStorage para gravar no armazenamento offline
     } catch (error) {
