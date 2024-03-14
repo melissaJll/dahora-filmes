@@ -2,6 +2,12 @@
 
 Exemplo de app nativo multiplataforma criado com React Native e Expo.
 
+## Branch 09-gerenciamento-de-favoritos
+
+### Recursos nativos/lib: AsyncStorage
+
+`AsyncStorage` é uma lib mantida pela equipe do Expo que permite armazenar dados **off-line** em formato de `string` no dispositivo do usuário. É uma lib semelhante á API web `localStorage` usada em sites
+
 ## Branch 08-tela-de-detalhes-do-filme
 
 - Criação da tela `Detalhes.js` e adição dela à `Stack` em `App.js`
