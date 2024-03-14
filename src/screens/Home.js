@@ -24,7 +24,12 @@ export default function Home({ navigation }) {
           </Text>
         </Pressable>
 
-        <Pressable style={estilos.botao}>
+        <Pressable
+          style={estilos.botao}
+          onPress={() => {
+            navigation.navigate("Favoritos");
+          }}
+        >
           <Text style={estilos.textBotao}>
             <Ionicons name="star" size={16} color="gold" /> Favoritos
           </Text>

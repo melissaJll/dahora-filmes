@@ -11,6 +11,7 @@ import BuscarFilmes from "./src/screens/BuscarFilmes";
 import Privacidade from "./src/screens/Privacidade";
 import Resultados from "./src/screens/Resultados";
 import Detalhes from "./src/screens/Detalhes";
+import Favoritos from "./src/screens/Favoritos";
 
 export default function App() {
   return (
@@ -62,6 +63,7 @@ export default function App() {
               };
             }}
           />
+          <Stack.Screen name="Favoritos" component={Favoritos} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
