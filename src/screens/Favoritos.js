@@ -9,6 +9,7 @@ import {
 import SafeContainer from "../components/SafeContainer";
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Favoritos() {
   const [listaFavoritos, setListaFavoritos] = useState([]);
@@ -19,7 +20,7 @@ export default function Favoritos() {
       try {
         const dados = await AsyncStorage.getItem("@favoritosfilmesnahora");
         if (dados) {
-          setListaFavoritos(JSON.parse(dados));
+          setListaFavoritos(JSON.parse(dados)); //agora listaFavoritos recebeu dados (que foi convetido de string para objeto)
         }
       } catch (error) {
         console.log("erro ao carregar os dados: " + error);
@@ -35,8 +36,20 @@ export default function Favoritos() {
     <SafeContainer>
       <View style={estilos.subContainer}>
         <View style={estilos.viewFavoritos}>
-          <Text style={estilos.texto}>Favoritos...</Text>
+          <Text style={estilos.texto}>Quantidade: {listaFavoritos.length}</Text>
+
+          <Pressable style={estilos.Botao}>
+            <Text style={estilos.textoBotao}>
+              <Ionicons name="trash" size={15} /> Excluir favorito
+            </Text>
+          </Pressable>
         </View>
+
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {listaFavoritos.map((itemFavorito) => {
+            return <Text key={itemFavorito.id}>{itemFavorito.title}</Text>;
+          })}
+        </ScrollView>
       </View>
     </SafeContainer>
   );
@@ -51,4 +64,5 @@ const estilos = StyleSheet.create({
   texto: {
     marginVertical: 8,
   },
+  viewFavoritos: {},
 });
