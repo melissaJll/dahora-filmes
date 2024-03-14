@@ -26,6 +26,8 @@ export default function CardFilme({ filme }) {
       );
 
       // 2. Criar ou verificar uma lista de filmes favoritos (dados)
+      // se existir(se há dados no storage) transforma os dados de string para objeto ou atribui à filmesFavoritos um array vazio
+      const listaDeFilmes = filmesFavoritos ? JSON.parse(filmesFavoritos) : [];
 
       // 3. Verificar se já tem algum filme na lista
 
