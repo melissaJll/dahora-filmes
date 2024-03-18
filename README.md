@@ -33,7 +33,7 @@ Exemplo de app nativo multiplataforma criado com React Native e Expo.
         "gradleCommand": ":app:assembleRelease"
       },
       "env": {
-        "EXPO_PUBLIC_API_KEY": "1602c62567a4966a7a006133a96ebc32"
+        "EXPO_PUBLIC_API_KEY": "chave em .env criado"
       },
       "distribution": "internal"
     },
