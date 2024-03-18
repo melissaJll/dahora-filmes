@@ -46,7 +46,7 @@ export default function Favoritos({ navigation }) {
           style: "destructive",
           onPress: async () => {
             // Removemos nosso storage de favoritos
-            await AsyncStorage.removeItem("@favoritosdahora");
+            await AsyncStorage.removeItem("@favoritosfilmesnahora");
 
             // Atualizamos o state para sejam removidos da tela
             setListaFavoritos([]);
@@ -68,7 +68,7 @@ export default function Favoritos({ navigation }) {
 
     /* Atualizar o storage (memória física) com os dados da nova lista SEM o filme removido */
     await AsyncStorage.setItem(
-      "@favoritosdahora",
+      "@favoritosfilmesnahora",
       JSON.stringify(novaListaDeFavoritos)
     );
   };
@@ -92,7 +92,7 @@ export default function Favoritos({ navigation }) {
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
-          {listaFavoritos.map((itemFavorito) => {
+          {listaFavoritos.map((filme) => {
             return (
               <View key={filme.id} style={estilos.item}>
                 <Pressable
@@ -101,14 +101,18 @@ export default function Favoritos({ navigation }) {
                   }}
                   style={estilos.botaoItem}
                 >
-                  <Text style={estilos.titulo}>{itemFavorito.title} </Text>
+                  <Text style={estilos.titulo}>{filme.title} </Text>
                 </Pressable>
                 <Pressable
                   onPress={() => excluir(filme.id)}
                   style={estilos.botaoExcluir}
                 >
                   <Text>
-                    <Ionicons name="trash" size={19}></Ionicons>
+                    <Ionicons
+                      name="trash-outline"
+                      color="white"
+                      size={19}
+                    ></Ionicons>
                   </Text>
                 </Pressable>
               </View>
@@ -157,7 +161,7 @@ const estilos = StyleSheet.create({
   },
   titulo: { fontSize: 14 },
   botaoExcluir: {
-    backgroundColor: "darkred",
+    backgroundColor: "#de4e4e",
     padding: 4,
     borderRadius: 4,
   },
