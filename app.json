@@ -21,11 +21,21 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-dahora.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "package": "com.melissajl.dahorafilmes"
     },
     "plugins": [
       "expo-font",
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "1fde6c4f-bb9e-44aa-9036-5d3961b1ad75"
+      }
+    },
+    "owner": "melissajl"
   }
 }
