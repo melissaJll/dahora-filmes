@@ -56,6 +56,8 @@ export default function Favoritos({ navigation }) {
     );
   };
 
+  const excluir = async () => {};
+
   return (
     <SafeContainer>
       <View style={estilos.subContainer}>
@@ -84,7 +86,7 @@ export default function Favoritos({ navigation }) {
                 >
                   <Text style={estilos.titulo}>{itemFavorito.title} </Text>
                 </Pressable>
-                <Pressable>
+                <Pressable onPress={excluir} style={estilos.botaoExcluir}>
                   <Text>
                     <Ionicons name="trash" size={19}></Ionicons>
                   </Text>
@@ -132,5 +134,11 @@ const estilos = StyleSheet.create({
     padding: 15,
     marginVertical: 6,
     borderRadius: 5,
+  },
+  titulo: { fontSize: 14 },
+  botaoExcluir: {
+    backgroundColor: "darkred",
+    padding: 4,
+    borderRadius: 4,
   },
 });
