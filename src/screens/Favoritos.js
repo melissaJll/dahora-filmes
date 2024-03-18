@@ -48,7 +48,7 @@ export default function Favoritos() {
         <ScrollView showsVerticalScrollIndicator={false}>
           {listaFavoritos.map((itemFavorito) => {
             return (
-              <View style={estilos.item}>
+              <View key={filme.id} style={estilos.item}>
                 <Pressable style={estilos.botaoItem}>
                   <Text style={estilos.titulo}>{itemFavorito.title} </Text>
                 </Pressable>
