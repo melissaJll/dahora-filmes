@@ -64,14 +64,16 @@ export default function Favoritos({ navigation }) {
         <View style={estilos.viewFavoritos}>
           <Text style={estilos.texto}>Quantidade: {listaFavoritos.length}</Text>
 
-          <Pressable
-            onPress={excluirTodosFavoritos}
-            style={estilos.BotaoExcluirFavoritos}
-          >
-            <Text style={estilos.textoBotao}>
-              <Ionicons name="trash" size={15} /> Excluir favoritos
-            </Text>
-          </Pressable>
+          {listaFavoritos.length > 0 && (
+            <Pressable
+              onPress={excluirTodosFavoritos}
+              style={estilos.botaoExcluirFavoritos}
+            >
+              <Text style={estilos.textoBotao}>
+                <Ionicons name="trash-outline" size={16} /> Excluir favoritos
+              </Text>
+            </Pressable>
+          )}
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -117,7 +119,7 @@ const estilos = StyleSheet.create({
     marginHorizontal: 5,
     marginVertical: 8,
   },
-  BotaoExcluirFavoritos: {
+  botaoExcluirFavoritos: {
     borderColor: "e1d7fa",
     borderRadius: 5,
     padding: 15,
