@@ -2,6 +2,32 @@
 
 Exemplo de app nativo multiplataforma criado com React Native e Expo.
 
+## Branch 10-processo-de-build-ou-compilacao
+
+### Roteiro geral para o build usando o Expo EAS
+
+1. Acessar a conta Expo e criar um projeto no Expo EAS: https://expo.dev
+2. Instalar o eas-cli
+3. Adicionar o id do projeto ao aplicativo (isso modificará o arquivo `app.json`)
+4. Verificar a conta logada: `eas whoami`
+
+- Se não estiver logado, use: `eas login`
+- Se estiver logado e quiser deslogar (ou trocar de usuário), use: `eas logout`
+
+5. Configurar o build (compilação): `eas build:configure`
+6. Escolha Android e dê enter. Isso criará um arquivo chamado `eas.json`.
+7. É necessário modificar o segmento `preview` dentro do `eas.json`, adicionando o código abaixo:
+
+```json
+"developmentClient" : true,
+    "android" : {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+    },
+```
+
+8. Iniciar o processo de build/compilação: `eas build --profile preview`
+
 ## Branch 09-gerenciamento-de-favoritos
 
 ### Recursos nativos/lib: AsyncStorage
